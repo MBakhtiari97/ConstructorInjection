@@ -1,0 +1,6 @@
+@ConstructorInjection_HostAddress = http://localhost:5081
+
+GET {{ConstructorInjection_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
