@@ -22,9 +22,7 @@ public class Program
     {
         var userSecretId = GetSecret();
         builder.Configuration.AddUserSecrets(userSecretId);
-
-        var masterConnectionString = builder.Configuration.GetConnectionString("MasterConnection");
-
+        var masterConnectionString = builder.Configuration.GetConnectionString("ApplicationConnection");
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
                                                          options.UseSqlServer(masterConnectionString)
                                                          .EnableSensitiveDataLogging());
