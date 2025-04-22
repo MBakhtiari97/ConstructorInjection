@@ -1,6 +1,7 @@
 using DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration.UserSecrets;
+using Service.UserAddressServices;
 using Service.UserServices;
 
 namespace ConstructorInjection;
@@ -34,6 +35,8 @@ public class Program
         builder.Services.AddScoped<IUserSaver, UserSaver>();
         builder.Services.AddScoped<IUserRemover, UserRemover>();
         builder.Services.AddScoped<IUserServices, UserServices>();
+        builder.Services.AddScoped<IUserAddressRemover, UserAddressRemover>();
+        builder.Services.AddScoped<IUserAddressServices, UserAddressServices>();
     }
 
     public static void Main(string[] args)
@@ -58,7 +61,6 @@ public class Program
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
-
 
         app.MapControllers();
 

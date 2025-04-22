@@ -10,6 +10,8 @@ public class UserAddress
     [Required]
     public int Id { get; set; }
     [Required]
+    public int AppUserId { get; set; }
+    [Required]
     [StringLength(50, ErrorMessage = "{0} is too long")]
     public string PhoneNumber { get; set; } = string.Empty;
     [AllowNull]

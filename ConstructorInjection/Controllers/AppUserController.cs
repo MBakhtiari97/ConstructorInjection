@@ -13,12 +13,12 @@ public class AppUserController : ControllerBase
     {
         _userServices = userServices;
     }
-    [HttpGet("{id}")]
-    public async Task<IActionResult> Get(int id)
+    [HttpGet("{userId}")]
+    public async Task<IActionResult> Get(int userId)
     {
         try
         {
-            var result = await _userServices.GetUserAsync(id);
+            var result = await _userServices.GetUserAsync(userId);
             return Ok(result);
         }
         catch (Exception ex)
@@ -26,7 +26,7 @@ public class AppUserController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
-    [HttpGet("{id}")]
+    [HttpGet]
     public async Task<IActionResult> GetAll()
     {
         try
@@ -52,8 +52,8 @@ public class AppUserController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
-    [HttpDelete]
-    public async Task<IActionResult> SaveUser(int userId)
+    [HttpDelete("{userId}")]
+    public async Task<IActionResult> DeleteUser(int userId)
     {
         try
         {
